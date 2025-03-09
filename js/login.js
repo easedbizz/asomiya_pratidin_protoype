@@ -287,3 +287,16 @@ function checkAuthentication() {
         }
     });
 }
+
+// Add this to your login.js file:
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    // Adding a manual redirect as a fallback
+    setTimeout(function() {
+      const userType = document.getElementById('loginUserType').value;
+      if (userType === 'surveyor') {
+        window.location.replace('survey.html');
+      } else {
+        window.location.replace('delivery.html');
+      }
+    }, 3000); // 3 second fallback if Firebase auth is slow
+  });
